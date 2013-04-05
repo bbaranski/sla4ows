@@ -1,0 +1,222 @@
+ ------
+ Workflow
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Workflow
+
+ The SLA4OWS service interface is designed along the approach described in {{{http://ws-rest.org/2011/proc/a12-kubert.pdf}A RESTful implementation of the WS-Agreement specification}}. This document describes the typical template discovery, agreement creation and monitoring workflow from the service consumer perspective.
+ 
+* Show Template
+
+      * To show all available templates, use this command:
+ 
+----------------------------------------
+$ curl -v -X GET -H"Accept: application/xml" http://localhost:8088/sla-manager/templates
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-manager/templates HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: application/xml
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 196
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<rest:TemplateList>
+  (...)
+</rest:TemplateList>
+----------------------------------------
+
+      * To show template details, use this command:
+ 
+----------------------------------------
+$ curl -v -X GET -H"Accept: application/xml" http://localhost:8088/sla-manager/template/WSAG_DEFAULT_TEMPLATE_5
+----------------------------------------
+
+      The response should look like this:
+
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-manager/template/WSAG_DEFAULT_TEMPLATE_5 HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: application/xml
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 18893
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0 
+<wsag:Template>
+  (...)
+</wsag:Template>
+----------------------------------------
+
+* Create Agreement
+
+      * To make an agreement offer, use this command:
+            
+----------------------------------------
+$ curl -v -X POST -d @./sla-site/src/site/resources/examples/agreement-offer.xml -H"Content-Type: application/xml" -H"Accept: application/xml" http://localhost:8088/sla-manager/agreements
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> POST /sla-manager/agreements HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Content-Type: application/xml
+> Accept: application/xml
+> Content-Length: 7917
+> Expect: 100-continue
+> 
+< HTTP/1.1 100 Continue
+< HTTP/1.1 201 Created
+< Location: http://localhost:8088/sla-manager/agreement/45053565-ff53-4e8e-ab80-1110eb1ef35a
+< Content-Length: 0
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+----------------------------------------
+
+* Show Agreement
+
+      * To show all available agreements, use this command:
+
+----------------------------------------
+$ curl -v -X GET -H"Accept: application/xml" http://localhost:8088/sla-manager/agreements
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-manager/agreements HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: application/xml
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 333
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<rest:AgreementList>
+  (...)
+</rest:AgreementList>
+----------------------------------------
+
+      * To show agreement details, use this command:
+
+----------------------------------------
+$ curl -v -X GET -H"Accept: application/xml" http://localhost:8088/sla-manager/agreement/45053565-ff53-4e8e-ab80-1110eb1ef35a
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-manager/agreement/45053565-ff53-4e8e-ab80-1110eb1ef35a HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: application/xml
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 8132
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0 
+<ws:Agreement>
+  (...)
+</ws:Agreement>   
+----------------------------------------
+
+* Service Consumption
+
+      * To execute a service through the agreement proxy service, use this command:
+
+----------------------------------------
+$ curl -v -X GET "http://localhost:8088/sla-proxy/helloworld/45053565-ff53-4e8e-ab80-1110eb1ef35a?service=wfs&version=1.1.0&request=GetCapabilities"
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-proxy/helloworld/45053565-ff53-4e8e-ab80-1110eb1ef35a?service=wfs&version=1.1.0&request=GetCapabilities HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 11
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+Hello World
+----------------------------------------
+
+* Monitor Agreement
+
+      * To show the agreement state, use this command:
+
+----------------------------------------
+$ curl -v -X GET -H"Accept: application/xml" http://localhost:8088/sla-manager/agreement/45053565-ff53-4e8e-ab80-1110eb1ef35a/state 
+----------------------------------------
+
+      The response should look like this:
+ 
+----------------------------------------
+* About to connect() to localhost port 8088 (#0)
+*   Trying ::1... connected
+* Connected to localhost (::1) port 8088 (#0)
+> GET /sla-manager/agreement/45053565-ff53-4e8e-ab80-1110eb1ef35a/state HTTP/1.1
+> User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:8088
+> Accept: application/xml
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/xml
+< Content-Length: 8826
+< Server: Jetty(6.1.26)
+< 
+* Connection #0 to host localhost left intact
+* Closing connection #0
+<ws:AgreementProperties>
+  (...)
+</ws:AgreementProperties>
+----------------------------------------

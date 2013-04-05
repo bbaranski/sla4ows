@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-proxy:Configuration xmlns:sla-proxy="http://www.ifgi.org/namespaces/sla/proxy" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-proxy:Manager>
+		<sla-proxy:URI>${manager.url}</sla-proxy:URI>
+	</sla-proxy:Manager>
+	
+	<sla-proxy:Infrastructure>
+		<sla-proxy:URI>${infrastructure.url}</sla-proxy:URI>
+	</sla-proxy:Infrastructure>	
+
+	<sla-proxy:Proxy>
+		<sla-proxy:URI>${proxy.url}</sla-proxy:URI>
+	</sla-proxy:Proxy>	
+	
+	<sla-proxy:Service name="helloworld">
+		<sla-proxy:Infrastructure>MyServer</sla-proxy:Infrastructure>
+		<sla-proxy:URI>${proxy.helloworld}</sla-proxy:URI>
+	</sla-proxy:Service>
+	
+	<sla-proxy:Service name="DefaultWMS">
+		<sla-proxy:Path>/geoserver/wms</sla-proxy:Path>
+	</sla-proxy:Service>
+	
+	<sla-proxy:Service name="AmazonWFS">
+		<sla-proxy:Path>/geoserver/wfs</sla-proxy:Path>
+	</sla-proxy:Service>
+	
+	<sla-proxy:Service name="AmazonWPS">
+		<sla-proxy:Path>/wps/Controller</sla-proxy:Path>
+	</sla-proxy:Service>
+
+</sla-proxy:Configuration>

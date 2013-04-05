@@ -1,0 +1,34 @@
+ ------
+ Research
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Research
+
+[images/research.jpg] ifgi Logo
+
+ The Service Level Agreements for OGC Web Services (SLA4OWS) framework is developed at the {{{http://www.ifgi.de}Institute for Geoinformatics}}  at the University of Muenster and at the {{{http://www.conterra.de}con terra GmbH}} in the {{{http://www.sla4d-grid.de}Service Level Agreements for D-Grid (SLA4D-Grid)}} project. This document introduces the SLA4D-Grid project and the WS-Agreement Application Profile for OGC Web Services that is supported by the SLA4OWS framework.
+ 
+* Mission and Solutions
+
+ The SLA4D-Grid project is designing and realising a Service Level Agreement layer for the Germany's national Grid infrastructure D-Grid. The Service Level Agreement layer offers individual users, whole D-Grid communities, and the providers of D-Grid resources service usage under given guarantees, quality-of-service requirements and pre-defined business conditions. For this purpose, service level requests and the corresponding offers are linked by binding Service Level Agreements. By means of the SLA layer and with the assistance of other D-Grid services, such as monitoring and accounting, SLAs can be automatically created, negotiated and their observance monitored, so that the D-Grid can be used by academic and industrial users in an economically efficient manner, in accordance with their respective business models.
+
+ SLA4D-Grid is making a variety of solutions available to the D-Grid community and the Grid and Distributed Systems community at-large. In addition to the major output of the project, the Service Level Agreement layer for the D-Grid infrastructure, this includes:
+  
+      * additional software to exploit the features of the Service Level Agreement layer
+      
+      * SLA templates and examples for various domains
+      
+      * scientific publications and presentations
+      
+      * recommendations and best practices from academia and industry
+
+ More detailed information about the SLA4D-Grid project can be found {{{http:\\www.sla4d-grid.de}here}}.
+
+* WS-Agreement Application Profile
+
+ The {{{http://www.ogf.org/documents/GFD.107.pdf}WS-Agreement Specification}} defines "a Web Services protocol to establish agreements between two parties, such as between a service provider and consumer, using an extensible XML language for specifying the nature of the agreement, and agreement templates to facilitate discovery of compatible agreement parties". The WS-Agreement Application Profile for OGC Web Services is developed in the SLA4D-Grid project. It specifies XML schemas for providing functional and non-functional service descriptions of OGC Web Services (OWS), an Uniform Resource Name (URN) namespace for identifying measurable service properties and business values, and a Domain Specific Language (DSL) for defining and evaluating service level guarantees.
+ 
+ More detailed information about the WS-Agreement Application Profile for OGC Web Services can be found {{{https://portal.opengeospatial.org/files/?artifact_id=45403}here}}.

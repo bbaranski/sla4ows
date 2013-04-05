@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-infrastructure:Configuration xmlns:sla-infrastructure="http://www.ifgi.org/namespaces/sla/infrastructure" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-infrastructure:PrivateInfrastructure name="default">
+		<sla-infrastructure:Target>http://localhost:8080</sla-infrastructure:Target>
+	</sla-infrastructure:PrivateInfrastructure>
+	
+	<sla-infrastructure:Sla4dgridInfrastructure name="SLA4D-Grid">
+		<sla-infrastructure:URI>http://134.76.9.84</sla-infrastructure:URI>
+	</sla-infrastructure:Sla4dgridInfrastructure>
+	
+	<sla-infrastructure:AmazonInfrastructure name="AmazonEC2">
+	</sla-infrastructure:AmazonInfrastructure>
+
+</sla-infrastructure:Configuration>

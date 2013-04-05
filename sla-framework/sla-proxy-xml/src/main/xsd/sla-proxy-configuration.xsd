@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema targetNamespace="http://www.ifgi.org/namespaces/sla/proxy" xmlns:sla-proxy="http://www.ifgi.org/namespaces/sla/proxy" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="Configuration" type="sla-proxy:ConfigurationType" />
+
+	<xs:element name="Manager" type="sla-proxy:ManagerType" />
+	<xs:element name="Infrastructure" type="sla-proxy:InfrastructureType" />
+	<xs:element name="Proxy" type="sla-proxy:ProxyType" />
+	
+	<xs:element name="Service" type="sla-proxy:ServiceType" />
+
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element ref="sla-proxy:Manager" minOccurs="1" maxOccurs="1"  />
+			<xs:element ref="sla-proxy:Infrastructure" minOccurs="1" maxOccurs="1"  />
+			<xs:element ref="sla-proxy:Proxy" minOccurs="1" maxOccurs="1" />
+
+			<xs:element ref="sla-proxy:Service" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ManagerType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="InfrastructureType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="ProxyType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>		
+
+	<xs:complexType name="ServiceType">
+		<xs:sequence>
+			<xs:element name="Path" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+
+</xs:schema>

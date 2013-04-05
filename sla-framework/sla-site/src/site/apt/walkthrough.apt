@@ -1,0 +1,67 @@
+ ------
+ Walkthrough
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Walkthrough
+
+ This document describes the typical template discovery, agreement creation and monitoring workflow from the service consumer perspective. The walkthrough is aligned the command-line based workflow described {{{workflow.html}here}}.
+ 
+ A screencast of the walkthrough can be found {{{videos/walkthrough.mkv}here}}.
+  
+* Show Template
+
+ To show all available templates, the service consumer must login into the client (the default login credentials for demonstration purposes are "guest"/"guest"). 
+  
+[images/screenshot01.jpg] Screenshot
+
+ To show template details, the service consumer must click a template.
+ 
+[images/screenshot02.jpg] Screenshot 
+* Create Agreement
+
+ To create an agreement, the service consumer must expand a template, click 'Add Agreement', complete the contact details form and finally click 'Ok'.
+ 
+[images/screenshot03.jpg] Screenshot
+ 
+[images/screenshot04.jpg] Screenshot
+ 
+* Show Agreement
+
+ To show all available agreements, the service consumer must open the 'Agreements' section. To show agreement details, the service consumer must click an agreement.
+ 
+[images/screenshot05.jpg] Screenshot
+
+* Service Consumption
+
+ To execute a service under the terms of a previously created agreement, the service consumer must use the URL specified in the created agreement.
+ 
+[images/screenshot06.jpg] Screenshot
+ 
+ This walkthrough uses the {{{http://udig.refractions.net/}uDig}} open source desktop application framework. For demonstration purposes, some OpenStreetMap data are mixed with the vector data of the OGC Web Feature Service (WFS) (see {{{setup.html}here}}).
+ 
+[images/udig01.jpg] Screenshot
+ 
+[images/udig02.jpg] Screenshot
+
+[images/udig04.jpg] Screenshot
+
+[images/udig03.jpg] Screenshot
+
+[images/udig05.jpg] Screenshot
+
+* Monitor Agreement
+
+ To show the agreement state, the service consumer must click an agreement.
+  
+[images/screenshot07.jpg] Screenshot
+ 
+ To show detailed monitoring information, the service consumer must open the 'Monitoring' section.
+ 
+[images/screenshot08.jpg] Screenshot
+ 
+ To show a graphical representation of monitoring information, the service consumer must click the data type.
+ 
+[images/screenshot09.jpg] Screenshot

@@ -1,0 +1,52 @@
+ ------
+ Architecture
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Architecture
+
+ This document describes the architecture of the SLA4OWS framework.
+
+  
+* Framework
+
+ The following diagram gives a brief overview of the SLA4OWS framework.
+
+[images/architecture.jpg] The SLA4OWS architecture
+
+ The SLA4OWS framework is composed of the following components.
+ 
+      * The Agreement Manager component enables service providers to offer their services with different service levels (e.g. service availability and response time) and along specific business values (e.g. usage costs). Furthermore, it enables service consumers to analyze the cost-benefit ratio of different service offerings and to create agreements regarding their personal functional and non-functional service requirements. The Agreement Manager components offers templates, agreements and status information about guarantee terms of negotiated agreements.
+
+      []
+      
+      * The Agreement Client component is a web-based client that helps service consumers to search templates, create agreements and check the status of agreements.
+
+      []           
+
+      * The Agreement Proxy component is a so-called Policy Enforcement Point (PEP) that checks whether a user is allowed to consume a service and if a service request is performed under the terms of a valid agreement. 
+
+      []           
+
+      * The Agreement Monitor component permanently monitors (active vs. passive monitoring) all relevant Key Performance Indicators (KPIs) of a service such as classic web service properties (e.g. service availability or response time) or domain specific attributes (e.g. data encoding and completeness).
+
+      []           
+
+      * The Agreement Evaluator component evaluates the status of the guarantee terms of an agreement (based on the monitoring history).
+
+      []           
+
+      * The Agreement Reporter component reports (potential) service quality problems and (potential) agreement violations to all contracting parties.
+      
+      []           
+
+      * The Infrastructure Manager component is responsible for resource management and the implementation of guaranteed service quality levels in Cloud Computing infrastructures.
+      
+      []           
+ 
+* Client
+
+ The client for the SLA4OWS framework is build with the {{{http://www.google.de/gwt}Google Web Toolkit (GWT)}}.
+ 

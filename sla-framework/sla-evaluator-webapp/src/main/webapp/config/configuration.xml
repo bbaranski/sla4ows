@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-evaluator:Configuration xmlns:sla-evaluator="http://www.ifgi.org/namespaces/sla/evaluator" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-evaluator:Evaluator interval="${evaluator.interval}" />
+
+	<sla-evaluator:Manager>
+		<sla-evaluator:URI>${manager.url}</sla-evaluator:URI>
+	</sla-evaluator:Manager>
+	
+	<sla-evaluator:Proxy>
+		<sla-evaluator:URI>${proxy.url}</sla-evaluator:URI>
+	</sla-evaluator:Proxy>
+	
+	<sla-evaluator:Reporter>
+		<sla-evaluator:URI>${reporter.url}</sla-evaluator:URI>
+	</sla-evaluator:Reporter>
+
+</sla-evaluator:Configuration>

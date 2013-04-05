@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ifgi.org/namespaces/wsag/ogc" elementFormDefault="qualified">
+  <!-- ######################################## -->
+  <!-- ELEMENT DEFINITIONS                      -->
+  <!-- ######################################## -->
+  <xs:element name="CustomBusinessValue" type="wsag-ogc:CustomBusinessValueType"/>
+  <!-- ######################################## -->
+  <!-- CUSTOM BUSINESS VALUE TYPE               -->
+  <!-- ######################################## -->  
+  <xs:complexType name="CustomBusinessValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Title" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Abstract" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Obligated" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

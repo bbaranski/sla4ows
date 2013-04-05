@@ -1,0 +1,12 @@
+ ------
+ SLA4D-Grid
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+       
+SLA4D-Grid
+
+ The infrastructure developed in the {{{http://www.sla4d-grid.de/}SLA4D-Grid}} project can be used to host services that are offered through the SLA4OWS framework. Furthermore, the scalability features of the developed infrastructure could be used to implement agreement-, service- and user-specific Quality of Service (QoS) levels.
+ 
+ More instructions regarding the integration of the SLA4D-Grid infrastructure in the SLA4OWS framework will be provided as soon as possible.

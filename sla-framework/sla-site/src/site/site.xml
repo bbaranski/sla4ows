@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<project name="SLA4OWS">
+  <publishDate format="yyyy-MM-dd" position="right"/>
+  <version position="none"/>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-default-skin</artifactId>
+    <version>1.0</version>
+  </skin>
+  <bannerLeft>
+    <name>SLA4OWS</name>
+    <src>images/logo.jpg</src>
+    <href>http://www.sla4d-grid.de</href>
+  </bannerLeft>
+  <body>
+    <menu name="Main">
+      <item name="Welcome" href="index.html"/>
+      <item name="Architecture" href="architecture.html"/>
+      <item name="Research" href="research.html"/>
+      <item name="License" href="license.html"/>
+    </menu>
+    <menu name="Framework">
+      <item name="Installation" href="installation.html"/>
+      <item name="Configuration" href="configuration.html"/>
+    </menu>
+    <menu name="Client">
+      <item name="Installation" href="client-installation.html"/>
+      <item name="Configuration" href="client-configuration.html"/>
+    </menu>
+    <menu name="Documentation">
+      <item name="Documents" href="documents.html"/>
+      <item name="Interfaces" href="interfaces.html"/>
+      <item name="Workflow" href="workflow.html"/>
+    </menu>
+    <menu name="Demonstration">
+      <item name="Installation" href="setup.html"/>
+      <item name="Walkthrough" href="walkthrough.html"/>
+    </menu>
+    <menu name="Infrastructure">
+      <item name="Amazon EC2" href="amazon.html"/>
+      <item name="SLA4D-Grid" href="sla4d-grid.html"/>
+    </menu>    
+  </body>
+</project>

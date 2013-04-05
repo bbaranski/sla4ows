@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-reporter:Configuration xmlns:sla-reporter="http://www.ifgi.org/namespaces/sla/reporter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-reporter:Mail enable="${reporter.mail.enable}">
+		<sla-reporter:reporter-mail-transport-protocol>${reporter.mail.transport.protocol}</sla-reporter:reporter-mail-transport-protocol>
+		<sla-reporter:reporter-mail-smtp-port>${reporter.mail.smtp.port}</sla-reporter:reporter-mail-smtp-port>
+		<sla-reporter:reporter-mail-smtp-starttls-enable>${reporter.mail.smtp.starttls.enable}</sla-reporter:reporter-mail-smtp-starttls-enable>
+		<sla-reporter:reporter-mail-smtp-auth>${reporter.mail.smtp.auth}</sla-reporter:reporter-mail-smtp-auth>
+		<sla-reporter:reporter-mail-host>${reporter.mail.host}</sla-reporter:reporter-mail-host>
+		<sla-reporter:reporter-mail-user>${reporter.mail.user}</sla-reporter:reporter-mail-user>
+		<sla-reporter:reporter-mail-password>${reporter.mail.password}</sla-reporter:reporter-mail-password>
+		<sla-reporter:reporter-mail-from>${reporter.mail.from}</sla-reporter:reporter-mail-from>
+	</sla-reporter:Mail>
+
+</sla-reporter:Configuration>

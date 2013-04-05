@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema targetNamespace="http://www.ifgi.org/namespaces/sla/evaluator" xmlns:sla-evaluator="http://www.ifgi.org/namespaces/sla/evaluator" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="Configuration" type="sla-evaluator:ConfigurationType" />
+
+	<xs:element name="Evaluator" type="sla-evaluator:EvaluatorType" />
+	<xs:element name="Manager" type="sla-evaluator:ManagerType" />
+	<xs:element name="Proxy" type="sla-evaluator:ProxyType" />
+	<xs:element name="Reporter" type="sla-evaluator:ReporterType" />
+
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element ref="sla-evaluator:Evaluator" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="sla-evaluator:Manager" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="sla-evaluator:Proxy" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="sla-evaluator:Reporter" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvaluatorType">
+		<xs:sequence>
+		</xs:sequence>
+		<xs:attribute name="interval" type="xs:int" />
+	</xs:complexType>
+
+	<xs:complexType name="ManagerType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ProxyType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReporterType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

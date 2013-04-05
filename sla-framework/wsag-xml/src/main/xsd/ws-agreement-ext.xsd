@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" targetNamespace="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+
+	<xs:include schemaLocation="ws-agreement.xsd" />
+
+	<xs:element name="Agreement" type="wsag:AgreementType" />
+
+</xs:schema>

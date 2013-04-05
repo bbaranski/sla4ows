@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-manager:Configuration xmlns:sla-manager="http://www.ifgi.org/namespaces/sla/manager" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-manager:Infrastructure>
+		<sla-manager:URI>${infrastructure.url}</sla-manager:URI>
+	</sla-manager:Infrastructure>
+
+</sla-manager:Configuration>

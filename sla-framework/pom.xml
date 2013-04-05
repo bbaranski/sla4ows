@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ifgi.sla</groupId>
+	<version>1.0-SNAPSHOT</version>
+	<artifactId>sla-framework</artifactId>
+	<packaging>pom</packaging>
+	<properties>
+		<jersey-version>1.6</jersey-version>
+	</properties>
+	<repositories>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>geotools</id>
+			<name>Geotools Repo</name>
+			<url>http://download.osgeo.org/webdav/geotools</url>
+		</repository>
+		<repository>
+			<id>n52-releases</id>
+			<name>52n Releases</name>
+			<url>http://52north.org/maven/repo/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>Geoserver</id>
+			<name>Geoserver repository</name>
+			<url>http://repository.codehaus.org/</url>
+		</repository>
+		<repository>
+			<id>OpenGEO</id>
+			<name>opengeo repository</name>
+			<url>http://repo.opengeo.org</url>
+		</repository>
+		<repository>
+			<id>codehaus</id>
+			<name>Codehaus Snapshots</name>
+			<url>http://snapshots.maven.codehaus.org/maven2</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>Codehaus Snapshots</name>
+			<url>http://repository.jboss.org/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>java net</id>
+			<name>Codehaus Snapshots</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>Apache</id>
+			<name>Apache repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+	<modules>
+		<module>wsag-xml</module>
+		<module>wsag-ogc-xml</module>
+		<module>sla-infrastructure-xml</module>
+		<module>sla-infrastructure-core</module>
+		<module>sla-infrastructure-webapp</module>
+		<module>sla-manager-xml</module>
+		<module>sla-manager-core</module>
+		<module>sla-manager-webapp</module>
+		<module>sla-proxy-xml</module>
+		<module>sla-proxy-core</module>
+		<module>sla-proxy-webapp</module>
+		<module>sla-monitor-xml</module>
+		<module>sla-monitor-core</module>
+		<module>sla-monitor-webapp</module>
+		<module>sla-reporter-xml</module>
+		<module>sla-reporter-core</module>
+		<module>sla-reporter-webapp</module>
+		<module>sla-evaluator-xml</module>
+		<module>sla-evaluator-core</module>
+		<module>sla-evaluator-webapp</module>
+		<module>sla-site</module>
+	</modules>
+	<build>
+		<filters>
+			<filter>${user.home}/.m2/build.properties</filter>
+		</filters>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<webApp>${project.build.directory}/${project.build.finalName}/</webApp>
+					<contextPath>/sla-framework</contextPath>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<stopKey>foo</stopKey>
+					<stopPort>9999</stopPort>
+					<daemon>false</daemon>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8088</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<contextHandlers>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-manager-webapp/target/sla-manager-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-manager</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-proxy-webapp/target/sla-proxy-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-proxy</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-monitor-webapp/target/sla-monitor-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-monitor</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-evaluator-webapp/target/sla-evaluator-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-evaluator</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-reporter-webapp/target/sla-reporter-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-reporter</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-infrastructure-webapp/target/sla-infrastructure-webapp-${project.version}</resourceBase>
+							<contextPath>/sla-infrastructure</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>./sla-site/target/site</resourceBase>
+							<contextPath>/sla4ows</contextPath>
+						</contextHandler>
+						<contextHandler implementation="org.mortbay.jetty.webapp.WebAppContext">
+							<resourceBase>../Application/stackup</resourceBase>
+							<contextPath>/StackUp</contextPath>
+						</contextHandler>
+					</contextHandlers>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

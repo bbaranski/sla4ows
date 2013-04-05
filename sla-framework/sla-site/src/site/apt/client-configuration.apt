@@ -1,0 +1,107 @@
+ ------
+ Configuration
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Configuration
+
+ This document describes how to configure the client of the SLA4OWS framework.
+  
+* Overview
+
+ The main configuration files of the SLA4OWS framework are:
+ 
+----------------------------------------
+<framework-dir>/sla-infrastructure-webapp/src/main/webapp/config/configuration.xml
+<framework-dir>/sla-manager-webapp/src/main/webapp/config/configuration.xml
+<framework-dir>/sla-proxy-webapp/src/main/webapp/config/configuration.xml
+<framework-dir>/sla-monitor-webapp/src/main/webapp/config/configuration.xml
+<framework-dir>/sla-reporter-webapp/src/main/webapp/config/configuration.xml
+<framework-dir>/sla-evaluator-webapp/src/main/webapp/config/configuration.xml
+----------------------------------------
+
+ After the build process is finished and the modules are deployed at the server, the configuration files are located at the <<</WEB-INF/conf>>> folder of each module.
+
+* Configuration
+
+ The entries in the configuration files look like this:
+
+----------------------------------------	
+<sla-evaluator:Manager>
+  <sla-evaluator:URI>${manager.url}</sla-evaluator:URI>
+</sla-evaluator:Manager>
+----------------------------------------
+
+ The concrete values for the <<<$\{...\}>>> placeholders are defined in a <<<build.properties>>> file.
+ 
+----------------------------------------
+manager.url=http://<server>:<port>/sla-manager
+reporter.url=http://<server>:<port>/sla-reporter
+infrastructure.url=http://<server>:<port>/sla-infrastructure
+proxy.url=http://<server>:<port>/sla-proxy
+proxy.helloworld=http://<server>:<port>/sla-proxy/HelloWorld
+monitor.interval=60000
+evaluator.interval=60000
+reporter.mail.enable=true
+reporter.mail.transport.protocol=smtp
+reporter.mail.smtp.port=25
+reporter.mail.smtp.starttls.enable=true
+reporter.mail.smtp.auth=true
+reporter.mail.host=<server>
+reporter.mail.user=<user>
+reporter.mail.password=<password>
+reporter.mail.from=<sender>
+----------------------------------------
+
+ The parameters in the <<<build.properties>>> file have the following meaning.
+
+*-----+------+
+ <<Parameter>> | <<Description>>
+*-----+------+
+ <<<manager.url>>> | The URL of the Agreement Manager component.
+*-----+------+
+ <<<reporter.url>>> | The URL of the Agreement Reporter component.
+*-----+------+
+ <<<infrastructure.url>>> | The URL of the Infrastructure Manager component.
+*-----+------+
+ <<<proxy.url>>> | The URL of the Agreement Proxy component.
+*-----+------+
+ <<<proxy.helloworld>>> | The URL of the "Hello World" service.
+*-----+------+
+ <<<monitor.interval>>> | The monitoring intervall (in milliseconds).
+*-----+------+
+ <<<evaluator.interval>>> | The evaluation intervall (in milliseconds).
+*-----+------+
+ <<<reporter.mail.enable>>> | If true, enables the reporting of (potential) agreement violations via mail.
+*-----+------+
+ <<<reporter.mail.transport.protocol>>> | Specifies the default message transport protocol.
+*-----+------+
+ <<<reporter.mail.smtp.port>>> | The port number of the mail server for the specified protocol.
+*-----+------+
+ <<<reporter.mail.smtp.starttls.enable>>> | If true, enables the use of the STARTTLS command.
+*-----+------+
+ <<<reporter.mail.smtp.auth>>> | If true, attempt to authenticate the user using the AUTH command.
+*-----+------+
+ <<<reporter.mail.host>>> | The host name of the mail server for the specified protocol.
+*-----+------+
+ <<<reporter.mail.user>>> | The user name to use when connecting to mail servers using the specified protocol.
+*-----+------+
+ <<<reporter.mail.password>>> | The password to use when connecting to mail servers using the specified protocol. 
+*-----+------+
+ <<<reporter.mail.from>>> | The return email address of the SLA4OWS framework.
+*-----+------+
+ 
+ The <<<build.properties>>> file is referenced in the root POM of the project located at <<<<framework-dir>/pom.xml>>>.
+
+----------------------------------------
+(...)
+		<filters>
+			<filter>${user.home}/build.properties</filter>
+		</filters>
+(...)		
+----------------------------------------
+
+ In this use case the <<<build.properties>>> file must be placed in the user home directory.
+

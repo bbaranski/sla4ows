@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sla-monitor:Configuration xmlns:sla-monitor="http://www.ifgi.org/namespaces/sla/monitor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<sla-monitor:Monitor interval="${evaluator.interval}" />
+
+	<sla-monitor:Manager>
+		<sla-monitor:URI>${manager.url}</sla-monitor:URI>
+	</sla-monitor:Manager>
+	
+	<sla-monitor:Proxy>
+		<sla-monitor:URI>${proxy.url}</sla-monitor:URI>
+	</sla-monitor:Proxy>
+	
+	<sla-monitor:Infrastructure>
+		<sla-monitor:URI>${infrastructure.url}</sla-monitor:URI>
+	</sla-monitor:Infrastructure>
+
+</sla-monitor:Configuration>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsag:Template xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:addressing="http://www.w3.org/2005/08/addressing" wsag:TemplateId="WSAG_DEFAULT_TEMPLATE_1">
+  <wsag:Name>INSPIRE_COORDINATE_TRANSFORMATION_SERVICE_TEMPLATE</wsag:Name>
+  <!-- AGREEMENT CONTEXT -->
+  <wsag:Context>
+    <wsag:ServiceProvider>AgreementResponder</wsag:ServiceProvider>
+    <wsag:AgreementResponder>
+      <wsag-ogc:Contact>
+        <wsag-ogc:Name>Institute for Geoinformatics</wsag-ogc:Name>
+        <wsag-ogc:Site xlin:href="http://www.ifgi.de" xmlns:xlin="http://www.w3.org/1999/xlink"></wsag-ogc:Site>
+        <wsag-ogc:Contact>
+          <ows:IndividualName>Bastian Baranski</ows:IndividualName>
+          <ows:PositionName>Research Associate</ows:PositionName>
+          <ows:ContactInfo>
+            <ows:Phone>
+              <ows:Voice>+49 251 8333071</ows:Voice>
+              <ows:Facsimile>+49 251 8339763</ows:Facsimile>
+            </ows:Phone>
+            <ows:Address>
+              <ows:DeliveryPoint>Weseler Strasse 253</ows:DeliveryPoint>
+              <ows:City>Muenster</ows:City>
+              <ows:PostalCode>48151</ows:PostalCode>
+              <ows:Country>Germany</ows:Country>
+              <ows:ElectronicMailAddress>bastian.baranski@uni-muenster.de</ows:ElectronicMailAddress>
+            </ows:Address>
+            <ows:HoursOfService>The hours of service are Monday to Friday from 8 AM to 16 PM.</ows:HoursOfService>
+            <ows:ContactInstructions>Please contact the service desk via mail under 'bastian.baranski@uni-muenster.de'.</ows:ContactInstructions>
+          </ows:ContactInfo>
+        </wsag-ogc:Contact>
+      </wsag-ogc:Contact>
+    </wsag:AgreementResponder>
+    <wsag:TemplateId>WSAG_DEFAULT_TEMPLATE_1</wsag:TemplateId>
+    <wsag:TemplateName>INSPIRE_COORDINATE_TRANSFORMATION_SERVICE_TEMPLATE</wsag:TemplateName>
+  </wsag:Context>
+  <wsag:Terms>
+    <wsag:All>
+      <!-- SERVICE DESCRIPTION -->
+      <wsag:ServiceDescriptionTerm wsag:Name="SERVICE_DESCRIPTION_SDT" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+        <wsag-ogc:ServiceDescription>
+          <wsag-ogc:Title>INSPIRE Coordinate Transformation Service</wsag-ogc:Title>
+          <wsag-ogc:Abstract>This WPS instance is an implementation of the INSPIRE Coordinate Transformation Service specification.</wsag-ogc:Abstract>
+          <wsag-ogc:Keywords>OGC, WPS, INSPIRE Coordinate Transformation Service</wsag-ogc:Keywords>
+          <wsag-ogc:Type>urn:ogc:wps:1.0.0:INSPIRE:TransformCoordinates:1.0</wsag-ogc:Type>
+          <wsag-ogc:ServiceProperties>
+            <wsag-ogc:Performance>
+              <wsag-ogc:DownloadRate>
+                <wsag-ogc:Value>1000</wsag-ogc:Value>
+              </wsag-ogc:DownloadRate>
+              <wsag-ogc:ResponseTime InputData="1000">
+                <wsag-ogc:Value>500</wsag-ogc:Value>
+              </wsag-ogc:ResponseTime>
+            </wsag-ogc:Performance>
+            <wsag-ogc:Availability>
+              <wsag-ogc:Value>99</wsag-ogc:Value>
+            </wsag-ogc:Availability>
+            <wsag-ogc:Capacity>
+              <wsag-ogc:Value>5</wsag-ogc:Value>
+            </wsag-ogc:Capacity>
+          </wsag-ogc:ServiceProperties>
+        </wsag-ogc:ServiceDescription>
+      </wsag:ServiceDescriptionTerm>
+      <wsag:ServiceDescriptionTerm wsag:Name="TIME_CONSTRAINT_SDT" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+        <res-sla:TimeConstraint>
+          <res-sla:StartTime>2010-07-04T13:00:00+02:00</res-sla:StartTime>
+          <res-sla:EndTime>2012-07-09T13:00:00+02:00</res-sla:EndTime>
+        </res-sla:TimeConstraint>
+      </wsag:ServiceDescriptionTerm>
+      <!-- SERVICE REFERENCE -->
+      <wsag:ServiceReference wsag:Name="SERVICE_REFERENCE" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+        <wsag-ogc:ServiceReference>
+          <wsag-ogc:URI>http://localhost:8088/sla-proxy/helloworld</wsag-ogc:URI>
+        </wsag-ogc:ServiceReference>
+      </wsag:ServiceReference>
+      <!-- SERVICE PROPERTIES -->
+      <wsag:ServiceProperties wsag:Name="SERVICE_PROPERTIES" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+        <wsag:VariableSet>
+          <wsag:Variable wsag:Name="REQ_PERFORMANCE" wsag:Metric="xs:integer">
+            <wsag:Location>declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';$this/wsag:Terms/wsag:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceDescription/wsag-ogc:ServiceProperties/wsag-ogc:Performance/wsag-ogc:ResponseTime/wsag-ogc:Value</wsag:Location>
+          </wsag:Variable>
+          <wsag:Variable wsag:Name="ACT_PERFORMANCE" wsag:Metric="xs:integer">
+            <wsag:Location>declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';$this/wsag:ServiceTermState/wsag-ogc:ServiceDescription/wsag-ogc:ServiceProperties/wsag-ogc:Performance/wsag-ogc:ResponseTime/wsag-ogc:Value
+						</wsag:Location>
+          </wsag:Variable>
+        </wsag:VariableSet>
+      </wsag:ServiceProperties>
+      <!-- GUARANTEE TERMS -->
+      <wsag:GuaranteeTerm wsag:Name="PERFORMANCE_GUARANTEE" wsag:Obligated="ServiceProvider">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_DESCRIPTION_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective>
+          <wsag:CustomServiceLevel>
+            <wsag-ogc:CustomServiceLevel>
+              <wsag-ogc:Title>Initial Response Time</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The initial response time of the service is maximum 500 ms.</wsag-ogc:Abstract>
+              <wsag-ogc:Status>REQ_PERFORMANCE gt ACT_PERFORMANCE</wsag-ogc:Status>
+            </wsag-ogc:CustomServiceLevel>
+          </wsag:CustomServiceLevel>
+        </wsag:ServiceLevelObjective>
+        <wsag:BusinessValueList/>
+      </wsag:GuaranteeTerm>
+    </wsag:All>
+  </wsag:Terms>
+</wsag:Template>

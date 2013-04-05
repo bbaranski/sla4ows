@@ -1,0 +1,89 @@
+ ------
+ Installation
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Installation
+
+ This document describes the typical SLA4OWS installation process from a service provider perspective. This tutorial describes a simple demonstration scenario in which the geoservice and the SLA4OWS framework are installed on the same machine.
+ 
+ More detailed instructions regarding the SLA4OWS installation process will be provided as soon as possible.
+  
+* 1. Install OGC Web Service
+
+ First, a service provider has to setup his specific geoservice. This tutorial is based on an OGC Web Feature Service (WFS) - as for instance provided by {{{http://geoserver.org/}Geoserver}} - that is available at the following URL.
+  
+---------------------------------------- 
+ http://<server>:8080/geoserver/wfs
+----------------------------------------
+
+ The deployed service should be protected against unauthorized access (service consumption without a previously negotiated agreement). Therefore, it is recommended to hide the service behind a firewall. Only the Agreement Proxy component of the SLA4OWS framework should have access to the service.
+  
+* 2. Install SLA4OWS Framework
+
+ The installation and configuration process of the SLA4OWS framework is described {{{installation.html}here}}. This tutorial assumes that the SLA4OWS framework is available - as described in the installation description - at port <<<8088>>>.
+ 
+* 3. Install SLA4OWS Client
+
+  The installation and configuration process of the client for the SLA4OWS framework is described {{{client-installation.html}here}}. This tutorial assumes that the client for the SLA4OWS framework is available - as described in the installation description - at the following URL.
+  
+---------------------------------------- 
+ http://<server>:8088/sla-client/SlaClient.html
+----------------------------------------
+
+* 4. Configure Infrastructure
+
+ Each service must be deployed (on-demand) on an infrastructure. The infrastructure must be configured in the Infrastructure Manager configuration that is located at the <<</config>>> folder.
+
+----------------------------------------
+ <sla-infrastructure:PrivateInfrastructure name="MyServer">
+   <sla-infrastructure:URI>http://localhost:8080</sla-infrastructure:URI>
+ </sla-infrastructure:PrivateInfrastructure> 
+----------------------------------------
+
+* 5. Configure Agreement Proxy
+
+ Each service that should be covered by the SLA4OWS framework and that should be protected by the Agreement Proxy against unauthorized access must be configured in the Agreement Proxy configuration that is located at the <<</config>>> folder. For each service, the following XML entry must be in the configuration file.
+ 
+---------------------------------------- 
+ <sla-proxy:Service name="DemonstrationWFS">
+   <sla-proxy:Path>/geoserver/wfs</sla-proxy:Path>
+ </sla-proxy:Service> 
+----------------------------------------
+
+ In this configuration example the deployed service is configured and public available through the Agreement Proxy at the following URL.
+
+---------------------------------------- 
+ http://<server>:8088/sla-proxy/DemonstrationWFS
+----------------------------------------
+
+* 6. Configure Template
+
+ For each service, there must be one (ore more) templates at the <<</data/template>>> folder of the Agreement Manager. To make templates permanently available in the SLA4OWS build process, they must be placed at the <<<<framework-dir>/sla-manager-webapp/src/main/webapp/data/templates>>> folder. By default, there is an example template available for the <<<HelloWorld>>> service of the SLA4OWS framework. 
+  
+ The deployed service (the service proxy) must be referenced in the template as described in the following XML snippet.
+
+----------------------------------------  
+ <wsag:ServiceReference wsag:Name="SERVICE_REFERENCE" wsag:ServiceName="SERVICE_NAME">
+   <wsag-ogc:ServiceReference>
+     <wsag-ogc:URI>http://<server>:8088/sla-proxy/DemonstrationWFS</wsag-ogc:URI>
+   </wsag-ogc:ServiceReference>
+ </wsag:ServiceReference> 
+---------------------------------------- 
+
+ Furthermore, the chosen/offered infrastructure must be referenced in the service properties section of the agreement template. 
+ 
+---------------------------------------- 
+ <wsag-ogc:Property>
+   <wsag-ogc:Name>InfrastructureProvider</wsag-ogc:Name>
+   <wsag-ogc:Title>Infrastructure Provider</wsag-ogc:Title>
+   <wsag-ogc:Abstract>The name of the infrastructure provider.</wsag-ogc:Abstract>
+   <wsag-ogc:Type>urn:ogc:def:sla:infrastructure:provider:name</wsag-ogc:Type>
+   <wsag-ogc:Value>MyServer</wsag-ogc:Value>
+ </wsag-ogc:Property> 
+---------------------------------------- 
+
+ The OGC Discussion Paper {{{https://portal.opengeospatial.org/files/?artifact_id=45403}WS-Agreement Application Profile for OGC Web Services}} describes the overall template format by defining a) the XML schemas for providing functional and non-functional service descriptions of OGC Web Services (OWS), b) the Uniform Resource Name (URN) namespace for identifying exposed and measurable service properties of OWS and c) the Domain Specific Language (DSL) for defining and evaluating service level guarantees.
+

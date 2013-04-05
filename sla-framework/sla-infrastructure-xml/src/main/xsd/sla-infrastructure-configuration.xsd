@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema targetNamespace="http://www.ifgi.org/namespaces/sla/infrastructure" xmlns:sla-infrastructure="http://www.ifgi.org/namespaces/sla/infrastructure" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="Configuration" type="sla-infrastructure:ConfigurationType" />
+
+	<xs:element name="PrivateInfrastructure" type="sla-infrastructure:PrivateInfrastructureType" />
+	<xs:element name="Sla4dgridInfrastructure" type="sla-infrastructure:Sla4dgridInfrastructureType" />
+	<xs:element name="AmazonInfrastructure" type="sla-infrastructure:AmazonInfrastructureType" />
+
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element ref="sla-infrastructure:PrivateInfrastructure" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element ref="sla-infrastructure:Sla4dgridInfrastructure" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element ref="sla-infrastructure:AmazonInfrastructure" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PrivateInfrastructureType">
+		<xs:sequence>
+			<xs:element name="Target" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	
+	<xs:complexType name="Sla4dgridInfrastructureType">
+		<xs:sequence>
+			<xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+		 
+	<xs:complexType name="AmazonInfrastructureType">
+		<xs:sequence>
+<!-- 		
+			<xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="endpoint" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="securityGroup" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="secretKey" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="accessKey" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="imageId" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="instanceType" minOccurs="1" maxOccurs="1" type="xs:string" />
+ -->			
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+
+ 	
+</xs:schema>

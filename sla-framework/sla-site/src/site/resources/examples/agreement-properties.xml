@@ -1,0 +1,398 @@
+<ws:AgreementProperties xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+  <ws:Name xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  <ws:AgreementId>246fc372-5aeb-4f76-a718-775e944d1698</ws:AgreementId>
+  <wsag:Context xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+    <wsag:AgreementInitiator>
+      <wsag-ogc:Contact>
+        <wsag-ogc:Name>Instititute for Geoinformatics</wsag-ogc:Name>
+        <wsag-ogc:Site xlin:href="http://www.ifgi.de" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+        <wsag-ogc:Contact>
+          <ows:IndividualName>Kristof Lange</ows:IndividualName>
+          <ows:PositionName>Student Assistance</ows:PositionName>
+          <ows:ContactInfo>
+            <ows:Phone>
+              <ows:Voice>+49 251 833307</ows:Voice>
+              <ows:Facsimile>+49 251 8339763</ows:Facsimile>
+            </ows:Phone>
+            <ows:Address>
+              <ows:DeliveryPoint>Weseler Strasse 253</ows:DeliveryPoint>
+              <ows:City>Muenster</ows:City>
+              <ows:PostalCode>48151</ows:PostalCode>
+              <ows:Country>Germany</ows:Country>
+              <ows:ElectronicMailAddress>kristof.lange@uni-muenster.de</ows:ElectronicMailAddress>
+            </ows:Address>
+            <ows:OnlineResource xlin:href="http://www.ifgi.de" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+          </ows:ContactInfo>
+        </wsag-ogc:Contact>
+      </wsag-ogc:Contact>
+    </wsag:AgreementInitiator>
+    <wsag:ServiceProvider>AgreementResponder</wsag:ServiceProvider>
+    <wsag:AgreementResponder>
+      <wsag-ogc:Contact>
+        <wsag-ogc:Name>Institute for Geoinformatics</wsag-ogc:Name>
+        <wsag-ogc:Site xlin:href="http://www.ifgi.de" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+        <wsag-ogc:Contact>
+          <ows:IndividualName>Bastian Baranski</ows:IndividualName>
+          <ows:PositionName>Research Associate</ows:PositionName>
+          <ows:ContactInfo>
+            <ows:Phone>
+              <ows:Voice>+49 251 8333071</ows:Voice>
+              <ows:Facsimile>+49 251 8339763</ows:Facsimile>
+            </ows:Phone>
+            <ows:Address>
+              <ows:DeliveryPoint>Weseler Strasse 253</ows:DeliveryPoint>
+              <ows:City>Muenster</ows:City>
+              <ows:PostalCode>48151</ows:PostalCode>
+              <ows:Country>Germany</ows:Country>
+              <ows:ElectronicMailAddress>baranski@uni-muenster.de</ows:ElectronicMailAddress>
+            </ows:Address>
+            <ows:HoursOfService>The hours of service are Monday to Friday from 8 AM to 16 PM.</ows:HoursOfService>
+            <ows:ContactInstructions>Please contact the service desk via phone or mail.</ows:ContactInstructions>
+          </ows:ContactInfo>
+        </wsag-ogc:Contact>
+      </wsag-ogc:Contact>
+    </wsag:AgreementResponder>
+    <wsag:TemplateId>WSAG_DEFAULT_TEMPLATE_8</wsag:TemplateId>
+    <wsag:TemplateName>INSPIRE_VIEW_SERVICE_TEMPLATE</wsag:TemplateName>
+  </wsag:Context>
+  <ws:Terms>
+    <ws:All>
+      <wsag:ServiceDescriptionTerm wsag:Name="SERVICE_DESCRIPTION_SDT" wsag:ServiceName="INSPIRE_VIEW_SERVICE" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag-ogc:ServiceDescription>
+          <wsag-ogc:Title>INSPIRE View Service</wsag-ogc:Title>
+          <wsag-ogc:Abstract>This service instance is an INSPIRE View Service implementation.</wsag-ogc:Abstract>
+          <wsag-ogc:Keywords>INSPIRE, View Service, OGC, WMS</wsag-ogc:Keywords>
+          <wsag-ogc:Type>urn:ogc:doc:is:wms:1.1.1</wsag-ogc:Type>
+        </wsag-ogc:ServiceDescription>
+      </wsag:ServiceDescriptionTerm>
+      <wsag:ServiceDescriptionTerm wsag:Name="SERVICE_PROPERTIES_SDT" wsag:ServiceName="INSPIRE_VIEW_SERVICE" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag-ogc:ServiceProperties>
+          <!--RESOURCE-RELATED PROPERTIES-->
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>operations</wsag-ogc:Name>
+            <wsag-ogc:Title>Supported Operations</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The operations that are supported by the service.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:resource:operation</wsag-ogc:Type>
+            <wsag-ogc:Monitoring>
+              <wsag-ogc:ActiveMonitoring>
+                <wsag-ogc:Start>00:00:00</wsag-ogc:Start>
+                <wsag-ogc:Stop>23:59:59</wsag-ogc:Stop>
+                <wsag-ogc:Period>360000</wsag-ogc:Period>
+              </wsag-ogc:ActiveMonitoring>
+            </wsag-ogc:Monitoring>
+          </wsag-ogc:Property>
+          <!--RUNTIME-RELATED PROPERTIES-->
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>availability</wsag-ogc:Name>
+            <wsag-ogc:Title>Service Availability</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The general availability of the service.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:runtime:availability</wsag-ogc:Type>
+            <wsag-ogc:Monitoring>
+              <wsag-ogc:ActiveMonitoring>
+                <wsag-ogc:Start>00:00:00</wsag-ogc:Start>
+                <wsag-ogc:Stop>23:59:59</wsag-ogc:Stop>
+                <wsag-ogc:Period>360000</wsag-ogc:Period>
+                <wsag-ogc:Request>
+                  <wsag-ogc:Method>GET</wsag-ogc:Method>
+                  <wsag-ogc:Content><![CDATA[service=WMS&version=1.3.0&request=GetMap&layers=topp:tasmania_state_boundaries&styles=&bbox=${__random(142.0,144.0)},${__random(-46.0,-44.0)},${__random(150.0,152.0)},${__random(-38.0,-36.0)}&width=800&height=600&srs=EPSG:4326&format=image/png]]></wsag-ogc:Content>
+                </wsag-ogc:Request>
+                <wsag-ogc:Response>
+                  <wsag-ogc:Status>200</wsag-ogc:Status>
+                </wsag-ogc:Response>
+              </wsag-ogc:ActiveMonitoring>
+            </wsag-ogc:Monitoring>
+          </wsag-ogc:Property>
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>response</wsag-ogc:Name>
+            <wsag-ogc:Title>Response Time</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The response time of the service.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:runtime:response</wsag-ogc:Type>
+            <wsag-ogc:Monitoring>
+              <wsag-ogc:ActiveMonitoring>
+                <wsag-ogc:Start>00:00:00</wsag-ogc:Start>
+                <wsag-ogc:Stop>23:59:59</wsag-ogc:Stop>
+                <wsag-ogc:Period>360000</wsag-ogc:Period>
+                <wsag-ogc:Request>
+                  <wsag-ogc:Method>GET</wsag-ogc:Method>
+                  <wsag-ogc:Content><![CDATA[service=WMS&version=1.3.0&request=GetMap&layers=topp:tasmania_state_boundaries&styles=&bbox=${__random(142.0,144.0)},${__random(-46.0,-44.0)},${__random(150.0,152.0)},${__random(-38.0,-36.0)}&width=800&height=600&srs=EPSG:4326&format=image/png]]></wsag-ogc:Content>
+                </wsag-ogc:Request>
+                <wsag-ogc:Response>
+                  <wsag-ogc:Status>200</wsag-ogc:Status>
+                </wsag-ogc:Response>
+              </wsag-ogc:ActiveMonitoring>
+            </wsag-ogc:Monitoring>
+          </wsag-ogc:Property>
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>capacity</wsag-ogc:Name>
+            <wsag-ogc:Title>Service Capacity</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The response time of the service for multiple parallel requests.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:runtime:response</wsag-ogc:Type>
+            <wsag-ogc:Monitoring>
+              <wsag-ogc:ActiveMonitoring>
+                <wsag-ogc:Start>20:00:00</wsag-ogc:Start>
+                <wsag-ogc:Stop>04:00:00</wsag-ogc:Stop>
+                <wsag-ogc:Period>3600000</wsag-ogc:Period>
+                <wsag-ogc:Session>
+                  <wsag-ogc:Capacity>20</wsag-ogc:Capacity>
+                  <wsag-ogc:Duration>60000</wsag-ogc:Duration>
+                  <wsag-ogc:Period>1000</wsag-ogc:Period>
+                </wsag-ogc:Session>
+                <wsag-ogc:Request>
+                  <wsag-ogc:Chance>10</wsag-ogc:Chance>
+                  <wsag-ogc:Method>GET</wsag-ogc:Method>
+                  <wsag-ogc:Content>service=WMS&amp;version=1.3.0&amp;request=GetCapabilities</wsag-ogc:Content>
+                </wsag-ogc:Request>
+                <wsag-ogc:Request>
+                  <wsag-ogc:Chance>90</wsag-ogc:Chance>
+                  <wsag-ogc:Method>GET</wsag-ogc:Method>
+                  <wsag-ogc:Content><![CDATA[service=WMS&version=1.3.0&request=GetMap&layers=topp:tasmania_state_boundaries&styles=&bbox=${__random(142.0,144.0)},${__random(-46.0,-44.0)},${__random(150.0,152.0)},${__random(-38.0,-36.0)}&width=800&height=600&srs=EPSG:4326&format=image/png]]></wsag-ogc:Content>
+                </wsag-ogc:Request>
+                <wsag-ogc:Response>
+                  <wsag-ogc:Status>200</wsag-ogc:Status>
+                </wsag-ogc:Response>
+              </wsag-ogc:ActiveMonitoring>
+            </wsag-ogc:Monitoring>
+          </wsag-ogc:Property>
+          <!--USAGE-RELATED PROPERTIES-->
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>pixel</wsag-ogc:Name>
+            <wsag-ogc:Title>Sum of Pixels</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The accessed number of pixels.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:usage:pixel</wsag-ogc:Type>
+            <wsag-ogc:Monitoring>
+              <wsag-ogc:PassiveMonitoring>
+                <wsag-ogc:Request>
+                  <wsag-ogc:Resource>/state/urn:ogc:def:sla:property:usage:pixel</wsag-ogc:Resource>
+                  <wsag-ogc:Method>GET</wsag-ogc:Method>
+                </wsag-ogc:Request>
+              </wsag-ogc:PassiveMonitoring>
+            </wsag-ogc:Monitoring>
+          </wsag-ogc:Property>
+          <!--INFRASTRUCTURE-RELATED PROPERTIES-->
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>provider</wsag-ogc:Name>
+            <wsag-ogc:Title>Infrastructure Provider</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The name of the infrastructure provider.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:infrastructure:provider:name</wsag-ogc:Type>
+            <wsag-ogc:Value>default</wsag-ogc:Value>
+          </wsag-ogc:Property>
+          <wsag-ogc:Property>
+            <wsag-ogc:Name>image</wsag-ogc:Name>
+            <wsag-ogc:Title>Virtual Machine</wsag-ogc:Title>
+            <wsag-ogc:Abstract>The name of the Virtual Machine (VM) template.</wsag-ogc:Abstract>
+            <wsag-ogc:Type>urn:ogc:def:sla:property:infrastructure:vm:name</wsag-ogc:Type>
+            <wsag-ogc:Value>ami-59f9c62d</wsag-ogc:Value>
+          </wsag-ogc:Property>
+        </wsag-ogc:ServiceProperties>
+      </wsag:ServiceDescriptionTerm>
+      <ws:ServiceDescriptionTerm ws:Name="TIME_CONSTRAINT_SDT" ws:ServiceName="INSPIRE_VIEW_SERVICE">
+        <wsag:TimeConstraint xmlns:wsag="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+          <wsag:StartTime>2011-05-27T11:00:00</wsag:StartTime>
+          <wsag:EndTime>2013-05-27T11:00:00</wsag:EndTime>
+        </wsag:TimeConstraint>
+      </ws:ServiceDescriptionTerm>
+      <wsag:ServiceProperties wsag:Name="SERVICE_PROPERTIES" wsag:ServiceName="INSPIRE_VIEW_SERVICE" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:VariableSet>
+          <wsag:Variable wsag:Name="SERVICE_PROPERTIES_STATE" wsag:Metric="xs:string">
+            <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState[@termName='SERVICE_PROPERTIES_SDT']/ws:State/text()</wsag:Location>
+          </wsag:Variable>
+        </wsag:VariableSet>
+      </wsag:ServiceProperties>
+      <ws:ServiceReference>
+        <wsag-ogc:ServiceReference xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc">
+          <wsag-ogc:URL>http://localhost:8088/sla-proxy/DefaultWMS/246fc372-5aeb-4f76-a718-775e944d1698</wsag-ogc:URL>
+        </wsag-ogc:ServiceReference>
+      </ws:ServiceReference>
+      <wsag:GuaranteeTerm wsag:Name="GUARANTEE_RESOURCE_OPERATIONS" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective>
+          <wsag:CustomServiceLevel>
+            <wsag-ogc:CustomServiceLevel>
+              <wsag-ogc:Name>InspireOperations</wsag-ogc:Name>
+              <wsag-ogc:Title>INSPIRE (Operations)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The following operations shall be implemented for an INSPIRE View service: GetCapabilities, GetMap.</wsag-ogc:Abstract>
+              <wsag-ogc:Status>isGetCapabilities = false;
+                isGetMap = false;
+                for (item : operations.name)
+                {
+                  if (item.equalsIgnoreCase('GetCapabilities'))
+                  {
+                    isGetCapabilities = true;
+                  }
+                  if (item.equalsIgnoreCase('GetMap'))
+                  {
+                    isGetMap = true;
+                  }            
+                }
+                (isGetCapabilities and isGetMap);</wsag-ogc:Status>
+            </wsag-ogc:CustomServiceLevel>
+          </wsag:CustomServiceLevel>
+        </wsag:ServiceLevelObjective>
+        <wsag:BusinessValueList/>
+      </wsag:GuaranteeTerm>
+      <wsag:GuaranteeTerm wsag:Name="GUARANTEE_RUNTIME_AVAILABILITY" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective>
+          <wsag:CustomServiceLevel>
+            <wsag-ogc:CustomServiceLevel>
+              <wsag-ogc:Name>InspireAvailability</wsag-ogc:Name>
+              <wsag-ogc:Title>INSPIRE (Availability)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The probability of a Network Service to be available shall be 99% of the time.</wsag-ogc:Abstract>
+              <wsag-ogc:Status>(availability.week >= 0.99) and (availability.month >= 0.99) and (availability.year >= 0.99)</wsag-ogc:Status>
+            </wsag-ogc:CustomServiceLevel>
+          </wsag:CustomServiceLevel>
+        </wsag:ServiceLevelObjective>
+        <wsag:BusinessValueList/>
+      </wsag:GuaranteeTerm>
+      <wsag:GuaranteeTerm wsag:Name="GUARANTEE_RUNTIME_RESPONSE" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective>
+          <wsag:CustomServiceLevel>
+            <wsag-ogc:CustomServiceLevel>
+              <wsag-ogc:Name>InspirePerformance</wsag-ogc:Name>
+              <wsag-ogc:Title>INSPIRE (Performance)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The response time for sending the initial response to a Get Map Request to a view service shall be maximum 5 seconds in normal situation.</wsag-ogc:Abstract>
+              <wsag-ogc:Status>fulfilled = 0; 
+                for (item : response.initial.week) { 
+                  if (item lt 5000) 
+                  {
+                    fulfilled = fulfilled + 1;
+                  }
+                }
+                percent = fulfilled / (size(response.initial.week) / 100.0);
+                percent gt 90.0;</wsag-ogc:Status>
+            </wsag-ogc:CustomServiceLevel>
+          </wsag:CustomServiceLevel>
+        </wsag:ServiceLevelObjective>
+        <wsag:BusinessValueList/>
+      </wsag:GuaranteeTerm>
+      <wsag:GuaranteeTerm wsag:Name="GUARANTEE_RUNTIME_CAPACITY" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective>
+          <wsag:CustomServiceLevel>
+            <wsag-ogc:CustomServiceLevel>
+              <wsag-ogc:Name>InspireCapacity</wsag-ogc:Name>
+              <wsag-ogc:Title>INSPIRE (Capacity)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The minimum number of served simultaneous service requests to a view service according to the performance quality of service shall be 20 per second.</wsag-ogc:Abstract>
+              <wsag-ogc:Status>fulfilled = 0; 
+                for (item : capacity.initial.week) { 
+                  if (item lt 5000) 
+                  {
+                    fulfilled = fulfilled + 1;
+                  }
+                }
+                percent = fulfilled / (size(capacity.initial.week) / 100.0);
+                percent gt 90.0;</wsag-ogc:Status>
+            </wsag-ogc:CustomServiceLevel>
+          </wsag:CustomServiceLevel>
+        </wsag:ServiceLevelObjective>
+        <wsag:BusinessValueList/>
+      </wsag:GuaranteeTerm>
+      <wsag:GuaranteeTerm wsag:Name="COSTS_PER_YEAR" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective/>
+        <wsag:BusinessValueList>
+          <wsag:CustomBusinessValue>
+            <wsag-ogc:CustomBusinessValue>
+              <wsag-ogc:Name>CostsPerYear</wsag-ogc:Name>
+              <wsag-ogc:Title>Usage Costs (Year)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The cost to be assessed for using the service on a yearly basis (in Euro).</wsag-ogc:Abstract>
+              <wsag-ogc:Type>urn:ogc:def:sla:business:cost:year</wsag-ogc:Type>
+              <wsag-ogc:Value>factor;
+                if (pixel.year lt (1000000 * 1000))
+                {
+                  factor = 1.0;
+                } else 
+                if (pixel.year lt (1000000 * 10000))
+                {
+                  factor = 0.5;
+                } else 
+                if (pixel.year lt (1000000 * 100000))
+                {
+                factor = 0.25;
+                } else 
+                if (pixel.year lt (1000000 * 1000000))
+                {
+                  factor = 0.125;
+                } else 
+                {
+                  factor = 0.0625;
+                }
+                (factor * (pixel.year / 1000000.0));</wsag-ogc:Value>
+            </wsag-ogc:CustomBusinessValue>
+          </wsag:CustomBusinessValue>
+        </wsag:BusinessValueList>
+      </wsag:GuaranteeTerm>
+      <wsag:GuaranteeTerm wsag:Name="PENALTY_PER_YEAR" wsag:Obligated="ServiceProvider" xmlns:wsrf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsag-ogc="http://www.ifgi.org/namespaces/wsag/ogc" xmlns:addressing="http://www.w3.org/2005/08/addressing" xmlns:res-sla="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions">
+        <wsag:ServiceScope wsag:ServiceName="INSPIRE_VIEW_SERVICE"/>
+        <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+        <wsag:ServiceLevelObjective/>
+        <wsag:BusinessValueList>
+          <wsag:CustomBusinessValue>
+            <wsag-ogc:CustomBusinessValue>
+              <wsag-ogc:Name>PenaltyPerYear</wsag-ogc:Name>
+              <wsag-ogc:Title>Penalty (Year)</wsag-ogc:Title>
+              <wsag-ogc:Abstract>The penalty to be assessed for not meeting service level objectives on a yearly basis (in Euro).</wsag-ogc:Abstract>
+              <wsag-ogc:Type>urn:ogc:def:sla:business:penalty:year</wsag-ogc:Type>
+              <wsag-ogc:Value>factor;
+                if (InspireAvailability.status == true)
+                {
+                  factor = 0;
+                } 
+                else
+                {
+                  factor = 0.25;
+                } 
+                (factor * CostsPerYear.value);</wsag-ogc:Value>
+            </wsag-ogc:CustomBusinessValue>
+          </wsag:CustomBusinessValue>
+        </wsag:BusinessValueList>
+      </wsag:GuaranteeTerm>
+    </ws:All>
+  </ws:Terms>
+  <ws:AgreementState>
+    <ws:State>Observed</ws:State>
+  </ws:AgreementState>
+  <ws:ServiceTermState ws:termName="SERVICE_DESCRIPTION_SDT">
+    <ws:State>Ready</ws:State>
+  </ws:ServiceTermState>
+  <ws:ServiceTermState ws:termName="SERVICE_PROPERTIES_SDT">
+    <ws:State>Ready</ws:State>
+  </ws:ServiceTermState>
+  <ws:ServiceTermState ws:termName="TIME_CONSTRAINT_SDT">
+    <ws:State>Ready</ws:State>
+  </ws:ServiceTermState>
+  <ws:GuaranteeTermState ws:termName="GUARANTEE_RESOURCE_OPERATIONS">
+    <ws:State>Fulfilled</ws:State>
+  </ws:GuaranteeTermState>
+  <ws:GuaranteeTermState ws:termName="GUARANTEE_RUNTIME_AVAILABILITY">
+    <ws:State>Fulfilled</ws:State>
+  </ws:GuaranteeTermState>
+  <ws:GuaranteeTermState ws:termName="GUARANTEE_RUNTIME_RESPONSE">
+    <ws:State>Violated</ws:State>
+  </ws:GuaranteeTermState>
+  <ws:GuaranteeTermState ws:termName="GUARANTEE_RUNTIME_CAPACITY">
+    <ws:State>Fulfilled</ws:State>
+  </ws:GuaranteeTermState>
+  <ws:GuaranteeTermState ws:termName="COSTS_PER_YEAR">
+    <ws:State>Fulfilled</ws:State>
+    <ogc:CustomBusinessValue xmlns:ogc="http://www.ifgi.org/namespaces/wsag/ogc">
+      <ogc:Name>CostsPerYear</ogc:Name>
+      <ogc:Type>urn:ogc:def:sla:business:cost:year</ogc:Type>
+      <ogc:Value>0.001234</ogc:Value>
+    </ogc:CustomBusinessValue>
+  </ws:GuaranteeTermState>
+  <ws:GuaranteeTermState ws:termName="PENALTY_PER_YEAR">
+    <ws:State>Fulfilled</ws:State>
+    <ogc:CustomBusinessValue xmlns:ogc="http://www.ifgi.org/namespaces/wsag/ogc">
+      <ogc:Name>PenaltyPerYear</ogc:Name>
+      <ogc:Type>urn:ogc:def:sla:business:penalty:year</ogc:Type>
+      <ogc:Value>0.0</ogc:Value>
+    </ogc:CustomBusinessValue>
+  </ws:GuaranteeTermState>
+</ws:AgreementProperties>

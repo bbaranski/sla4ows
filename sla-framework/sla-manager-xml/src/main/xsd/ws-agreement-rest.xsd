@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema xmlns:wsag-rest="http://www.ifgi.org/namespaces/wsag/rest" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ifgi.org/namespaces/wsag/rest" elementFormDefault="qualified">
+  <!-- ######################################## -->
+  <!-- ELEMENT DEFINITIONS                      -->
+  <!-- ######################################## -->
+  <xs:element name="TemplateList" type="wsag-rest:TemplateListType"/>
+  <xs:element name="AgreementList" type="wsag-rest:AgreementListType"/>  
+  <!-- ######################################## -->
+  <!-- TEMPLATE LIST TYPE                       -->
+  <!-- ######################################## -->  
+  <xs:complexType name="TemplateListType">
+    <xs:sequence>
+      <xs:element name="TemplateURI" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ######################################## -->
+  <!-- AGREEMENT LIST TAPE                      -->
+  <!-- ######################################## -->  
+  <xs:complexType name="AgreementListType">
+    <xs:sequence>
+      <xs:element name="AgreementURI" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

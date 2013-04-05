@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema xmlns:sla-manager="http://www.ifgi.org/namespaces/sla/manager" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ifgi.org/namespaces/sla/manager" elementFormDefault="qualified">
+  <!-- ######################################## -->
+  <!-- ELEMENT DEFINITIONS                      -->
+  <!-- ######################################## -->
+  <xs:element name="Configuration" type="sla-manager:ConfigurationType"/>
+  <xs:element name="Infrastructure" type="sla-manager:InfrastructureType"/>
+  <xs:complexType name="ConfigurationType">
+    <xs:sequence>
+      <xs:element ref="sla-manager:Infrastructure" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InfrastructureType">
+    <xs:sequence>
+      <xs:element name="URI" minOccurs="1" maxOccurs="1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

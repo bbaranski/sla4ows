@@ -1,0 +1,355 @@
+ ------
+ Documents
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Documents
+
+ The Agreement Manager component offers templates, accept agreement offers and manages agreements. This document provides information about the XML encoding of these documents.
+ 
+ The SLA4OWS framework supports the {{{XXX}WS-Agreement Application Profile for OGC Web Services}} that uses and extends the {{{http://www.ogf.org/documents/GFD.107.pdf}Web Services Agreement Specification (WS-Agreement)}}. The WS-Agreement Application Profile for OGC Web Services specifies XML schemas for providing functional and non-functional service descriptions of OGC Web Services (OWS), an Uniform Resource Name (URN) namespace for identifying measurable service properties and business values, and a Domain Specific Language (DSL) for defining and evaluating service level guarantees. The domain-specific parts of templates and agreements are specified in the following XML Schema documents.
+ 
+----------------------------------------
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-contact-details.xsd
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-service-description.xsd
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-service-properties.xsd
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-service-reference.xsd
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-service-level.xsd
+<framework-dir>/wsag-ogc-xml/src/main/xsd/ogc-business-value.xsd
+----------------------------------------
+
+ The XML Schema documents specifying the original WS-Agreement document encoding can be found at <<<<framework-dir>/wsag-xm/src/main/xsd>>> folder.
+ 
+* Templates
+
+ A complete example template XML document can be found {{{examples/template.xml}here}}. The most important and domain-specific parts of the template are described in the following XML snippets.
+ 
+      * The <<Agreement Responder>> section contains detailed information about the service provider.
+      
+----------------------------------------
+<wsag:AgreementResponder>
+  <wsag-ogc:Contact>
+    <wsag-ogc:Name>Institute for Geoinformatics</wsag-ogc:Name>
+    <wsag-ogc:Site xmlns:xlin="http://www.w3.org/1999/xlink" xlin:href="http://www.ifgi.de"/>
+    <wsag-ogc:Contact>
+      <ows:IndividualName>Bastian Baranski</ows:IndividualName>
+      <ows:PositionName>Research Associate</ows:PositionName>
+      <ows:ContactInfo>
+        <ows:Phone>
+          <ows:Voice>+49 251 8333071</ows:Voice>
+          <ows:Facsimile>+49 251 8339763</ows:Facsimile>
+        </ows:Phone>
+        <ows:Address>
+          <ows:DeliveryPoint>Weseler Strasse 253</ows:DeliveryPoint>
+          <ows:City>Muenster</ows:City>
+          <ows:PostalCode>48151</ows:PostalCode>
+          <ows:Country>Germany</ows:Country>
+          <ows:ElectronicMailAddress>bastian.baranski@uni-muenster.de</ows:ElectronicMailAddress>
+        </ows:Address>
+        <ows:HoursOfService>The hours of service are Monday to Friday from 8 AM to 16 PM.</ows:HoursOfService>
+        <ows:ContactInstructions>Please contact the service desk via phone or mail.</ows:ContactInstructions>
+      </ows:ContactInfo>
+    </wsag-ogc:Contact>
+  </wsag-ogc:Contact>
+</wsag:AgreementResponder>
+----------------------------------------
+
+      * The <<Functional Service Description>> section describes the type of OGC Web Service that is offered by the service provider.
+      
+----------------------------------------
+<wsag:ServiceDescriptionTerm wsag:Name="SERVICE_DESCRIPTION_SDT" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+  <wsag-ogc:ServiceDescription>
+    <wsag-ogc:Title>INSPIRE Coordinate Transformation Service</wsag-ogc:Title>
+    <wsag-ogc:Abstract>This WPS instance is an implementation of the INSPIRE Coordinate Transformation Service specification.</wsag-ogc:Abstract>
+    <wsag-ogc:Keywords>OGC, WPS, INSPIRE Coordinate Transformation Service</wsag-ogc:Keywords>
+    <wsag-ogc:Type>urn:ogc:wps:1.0.0:INSPIRE:TransformCoordinates:1.0</wsag-ogc:Type>
+    <wsag-ogc:Profile/>
+    <wsag-ogc:WSDL/>
+  </wsag-ogc:ServiceDescription>
+</wsag:ServiceDescriptionTerm>
+----------------------------------------
+
+      * The <<Non-Functional Service Description>> section describes the Quality of Service (QoS) that is offered by the service provider.
+      
+----------------------------------------
+<wsag:ServiceDescriptionTerm wsag:Name="SERVICE_PROPERTIES_SDT" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+  <wsag-ogc:ServiceProperties>
+    <wsag-ogc:Property>
+      <wsag-ogc:Name>ResponseTime</wsag-ogc:Name>
+      <wsag-ogc:Title>Initial Response Time</wsag-ogc:Title>
+      <wsag-ogc:Abstract>The initial response time of the service.</wsag-ogc:Abstract>
+      <wsag-ogc:Type>urn:ogc:def:sla:runtime:performance:response</wsag-ogc:Type>
+      <wsag-ogc:Value>60</wsag-ogc:Value>
+    </wsag-ogc:Property>
+    <wsag-ogc:Property>
+      <wsag-ogc:Name>AvailabilityPerDay</wsag-ogc:Name>
+      <wsag-ogc:Title>Availability (Day)</wsag-ogc:Title>
+      <wsag-ogc:Abstract>The general availability of the service per day.</wsag-ogc:Abstract>
+      <wsag-ogc:Type>urn:ogc:def:sla:runtime:availability:day</wsag-ogc:Type>
+      <wsag-ogc:Value>99</wsag-ogc:Value>
+    </wsag-ogc:Property>
+    <wsag-ogc:Property>
+      <wsag-ogc:Name>AvailabilityPerWeek</wsag-ogc:Name>
+      <wsag-ogc:Title>Availability (Week)</wsag-ogc:Title>
+      <wsag-ogc:Abstract>The general availability of the service per week.</wsag-ogc:Abstract>
+      <wsag-ogc:Type>urn:ogc:def:sla:runtime:availability:week</wsag-ogc:Type>
+      <wsag-ogc:Value>99</wsag-ogc:Value>
+    </wsag-ogc:Property>
+    <wsag-ogc:Property>
+      <wsag-ogc:Name>AvailabilityPerMonth</wsag-ogc:Name>
+      <wsag-ogc:Title>Availability (Month)</wsag-ogc:Title>
+      <wsag-ogc:Abstract>The general availability of the service per month.</wsag-ogc:Abstract>
+      <wsag-ogc:Type>urn:ogc:def:sla:runtime:availability:month</wsag-ogc:Type>
+      <wsag-ogc:Value>99</wsag-ogc:Value>
+    </wsag-ogc:Property>
+    <wsag-ogc:Property>
+      <wsag-ogc:Name>AvailabilityPerYear</wsag-ogc:Name>
+      <wsag-ogc:Title>Availability (Year)</wsag-ogc:Title>
+      <wsag-ogc:Abstract>The general availability of the service per year.</wsag-ogc:Abstract>
+      <wsag-ogc:Type>urn:ogc:def:sla:runtime:availability:year</wsag-ogc:Type>
+      <wsag-ogc:Value>99</wsag-ogc:Value>
+    </wsag-ogc:Property>
+  </wsag-ogc:ServiceProperties>
+</wsag:ServiceDescriptionTerm>
+----------------------------------------
+      
+      * The <<Service Properties>> section describes the Key Performance Indicators (KPIs) that should be measured by the SLA4OWS framework.
+      
+----------------------------------------
+<wsag:ServiceProperties wsag:Name="SERVICE_PROPERTIES" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+  <wsag:VariableSet>
+    <wsag:Variable wsag:Name="REQ_PERFORMANCE_RESPONSE" wsag:Metric="xs:integer">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:Terms/ws:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:performance:response']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="REQ_AVAILABILITY_DAY" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:Terms/ws:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:day']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="REQ_AVAILABILITY_WEEK" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:Terms/ws:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:week']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="REQ_AVAILABILITY_MONTH" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:Terms/ws:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:month']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="REQ_AVAILABILITY_YEAR" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:Terms/ws:All/wsag:ServiceDescriptionTerm/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:year']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="ACT_PERFORMANCE_RESPONSE" wsag:Metric="xs:integer">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:performance:response']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="ACT_AVAILABILITY_DAY" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:day']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="ACT_AVAILABILITY_WEEK" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:week']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="ACT_AVAILABILITY_MONTH" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:month']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+    <wsag:Variable wsag:Name="ACT_AVAILABILITY_YEAR" wsag:Metric="xs:double">
+      <wsag:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace wsag-ogc='http://www.ifgi.org/namespaces/wsag/ogc';declare namespace wsag='http://schemas.ggf.org/graap/2007/03/ws-agreement';/ws:AgreementProperties/ws:ServiceTermState/wsag-ogc:ServiceProperties/wsag-ogc:Property[./wsag-ogc:Type/text()='urn:ogc:def:sla:runtime:availability:year']/wsag-ogc:Value/text()</wsag:Location>
+    </wsag:Variable>
+  </wsag:VariableSet>
+</wsag:ServiceProperties>
+----------------------------------------
+
+      * The <<Guarantee Terms>> sections describes the guarantee terms that should be evaluated by the SLA4OWS framework and that represents the QoS that is offered by the service provider.
+      
+----------------------------------------
+<wsag:GuaranteeTerm wsag:Name="GUARANTEE_PERFORMANCE_RESPONSE" wsag:Obligated="ServiceProvider">
+  <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+  <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+  <wsag:ServiceLevelObjective>
+    <wsag:CustomServiceLevel>
+      <wsag-ogc:CustomServiceLevel>
+        <wsag-ogc:Name>InitialResponseTime</wsag-ogc:Name>
+        <wsag-ogc:Title>Initial Response Time</wsag-ogc:Title>
+        <wsag-ogc:Abstract>The initial response time of the service is maximum 500 ms.</wsag-ogc:Abstract>
+        <wsag-ogc:Status>ACT_PERFORMANCE_RESPONSE lt REQ_PERFORMANCE_RESPONSE</wsag-ogc:Status>
+      </wsag-ogc:CustomServiceLevel>
+    </wsag:CustomServiceLevel>
+  </wsag:ServiceLevelObjective>
+  <wsag:BusinessValueList/>
+</wsag:GuaranteeTerm>
+<wsag:GuaranteeTerm wsag:Name="GUARANTEE_AVAILABILITY_DAY" wsag:Obligated="ServiceProvider">
+  <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+  <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+  <wsag:ServiceLevelObjective>
+    <wsag:CustomServiceLevel>
+      <wsag-ogc:CustomServiceLevel>
+        <wsag-ogc:Name>AvailabilityDay</wsag-ogc:Name>
+        <wsag-ogc:Title>Availability (Day)</wsag-ogc:Title>
+        <wsag-ogc:Abstract>The average daily availability of the service is 99%.</wsag-ogc:Abstract>
+        <wsag-ogc:Status>ACT_AVAILABILITY_DAY gt REQ_AVAILABILITY_DAY</wsag-ogc:Status>
+      </wsag-ogc:CustomServiceLevel>
+    </wsag:CustomServiceLevel>
+  </wsag:ServiceLevelObjective>
+  <wsag:BusinessValueList/>
+</wsag:GuaranteeTerm>
+<wsag:GuaranteeTerm wsag:Name="GUARANTEE_AVAILABILITY_WEEK" wsag:Obligated="ServiceProvider">
+  <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+  <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+  <wsag:ServiceLevelObjective>
+    <wsag:CustomServiceLevel>
+      <wsag-ogc:CustomServiceLevel>
+        <wsag-ogc:Name>AvailabilityWeek</wsag-ogc:Name>
+        <wsag-ogc:Title>Availability (Week)</wsag-ogc:Title>
+        <wsag-ogc:Abstract>The average weekly availability of the service is 99%.</wsag-ogc:Abstract>
+        <wsag-ogc:Status>ACT_AVAILABILITY_WEEK gt REQ_AVAILABILITY_WEEK</wsag-ogc:Status>
+      </wsag-ogc:CustomServiceLevel>
+    </wsag:CustomServiceLevel>
+  </wsag:ServiceLevelObjective>
+  <wsag:BusinessValueList/>
+</wsag:GuaranteeTerm>
+<wsag:GuaranteeTerm wsag:Name="GUARANTEE_AVAILABILITY_MONTH" wsag:Obligated="ServiceProvider">
+  <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+  <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+  <wsag:ServiceLevelObjective>
+    <wsag:CustomServiceLevel>
+      <wsag-ogc:CustomServiceLevel>
+        <wsag-ogc:Name>AvailabilityMonth</wsag-ogc:Name>
+        <wsag-ogc:Title>Availability (Month)</wsag-ogc:Title>
+        <wsag-ogc:Abstract>The average monthly availability of the service is 99%.</wsag-ogc:Abstract>
+        <wsag-ogc:Status>ACT_AVAILABILITY_MONTH gt REQ_AVAILABILITY_MONTH</wsag-ogc:Status>
+      </wsag-ogc:CustomServiceLevel>
+    </wsag:CustomServiceLevel>
+  </wsag:ServiceLevelObjective>
+  <wsag:BusinessValueList/>
+</wsag:GuaranteeTerm>
+<wsag:GuaranteeTerm wsag:Name="GUARANTEE_AVAILABILITY_YEAR" wsag:Obligated="ServiceProvider">
+  <wsag:ServiceScope wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE"/>
+  <wsag:QualifyingCondition>SERVICE_PROPERTIES_STATE eq 'Ready'</wsag:QualifyingCondition>
+  <wsag:ServiceLevelObjective>
+    <wsag:CustomServiceLevel>
+      <wsag-ogc:CustomServiceLevel>
+        <wsag-ogc:Name>AvailabilityYear</wsag-ogc:Name>
+        <wsag-ogc:Title>Availability (Year)</wsag-ogc:Title>
+        <wsag-ogc:Abstract>The average yearly availability of the service is 99%.</wsag-ogc:Abstract>
+        <wsag-ogc:Status>ACT_AVAILABILITY_YEAR gt REQ_AVAILABILITY_YEAR</wsag-ogc:Status>
+      </wsag-ogc:CustomServiceLevel>
+    </wsag:CustomServiceLevel>
+  </wsag:ServiceLevelObjective>
+  <wsag:BusinessValueList/>
+</wsag:GuaranteeTerm>
+----------------------------------------
+
+* Agreement Offer
+
+ A complete example agreement offer XML document offer can be found {{{examples/agreement-offer.xml}here}}. The domain-specific and unique parts of the agreement offer are described in the following XML snippets.
+
+      * The <<Contract Runtime>> section describes the agreement runtime that is intended by the service consumer.
+      
+----------------------------------------
+<wsag:ServiceDescriptionTerm wsag:Name="CONTRACT_RUNTIME_SDT" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+  <res-sla:TimeConstraint>
+    <res-sla:StartTime>2010-07-04T13:00:00+02:00</res-sla:StartTime>
+    <res-sla:EndTime>2012-07-09T13:00:00+02:00</res-sla:EndTime>
+  </res-sla:TimeConstraint>
+</wsag:ServiceDescriptionTerm>
+----------------------------------------
+
+* Agreement
+
+ A complete example agreement XML document can be found {{{examples/agreement.xml}here}}. The domain-specific and unique parts of the agreement are described in the following XML snippets.
+
+      * The <<Service Reference>> section describes Endpoint Reference (EPR) of the service that could by accessed under the terms of the previously negotiated agreement.
+      
+----------------------------------------
+<wsag:ServiceReference wsag:Name="SERVICE_REFERENCE" wsag:ServiceName="INSPIRE_COORDINATE_TRANSFORMATION_SERVICE">
+  <wsag-ogc:ServiceReference>
+    <wsag-ogc:URI>http://localhost:8088/sla-proxy/helloworld/1234567890</wsag-ogc:URI>
+  </wsag-ogc:ServiceReference>
+</wsag:ServiceReference>
+----------------------------------------
+
+
+* Agreement Properties
+
+ A complete example agreement properties XML document can be found {{{examples/agreement-properties.xml}here}}. The different agreement, service and guarantee term states are described in the following XML snippets.
+
+      * The <<Agreement State>> section describes the overall state of the whole agreement.
+
+----------------------------------------
+<ws:AgreementState>
+  <ws:State>Observed</ws:State>
+</ws:AgreementState>
+----------------------------------------
+
+      * The <<Service Term States>> section describes the state of different aspects of the service (service availability, service quality, etc.). Furthermore, the section contains detailed information about the measured and delivered service quality.
+
+----------------------------------------
+<ws:ServiceTermState ws:termName="SERVICE_DESCRIPTION_SDT">
+  <ws:State>Ready</ws:State>
+</ws:ServiceTermState>
+<ws:ServiceTermState ws:termName="SERVICE_PROPERTIES_SDT">
+  <ws:State>Ready</ws:State>
+  <ogc:ServiceProperties xmlns:ogc="http://www.ifgi.org/namespaces/wsag/ogc">
+    <ogc:Property>
+      <ogc:Name>ResponseTime</ogc:Name>
+      <ogc:Title>Initial Response Time</ogc:Title>
+      <ogc:Abstract>The initial response time of the service.</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:performance:response</ogc:Type>
+      <ogc:Value>53</ogc:Value>
+    </ogc:Property>
+    <ogc:Property>
+      <ogc:Name>[Monitor] Availability</ogc:Name>
+      <ogc:Title>Text</ogc:Title>
+      <ogc:Abstract>Text</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:availability</ogc:Type>
+      <ogc:Value>true</ogc:Value>
+    </ogc:Property>
+    <ogc:Property>
+      <ogc:Name>AvailabilityPerDay</ogc:Name>
+      <ogc:Title>Availability (Day)</ogc:Title>
+      <ogc:Abstract>The general availability of the service per day.</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:availability:day</ogc:Type>
+      <ogc:Value>100.0</ogc:Value>
+    </ogc:Property>
+    <ogc:Property>
+      <ogc:Name>AvailabilityPerWeek</ogc:Name>
+      <ogc:Title>Availability (Week)</ogc:Title>
+      <ogc:Abstract>The general availability of the service per week.</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:availability:week</ogc:Type>
+      <ogc:Value>100.0</ogc:Value>
+    </ogc:Property>
+    <ogc:Property>
+      <ogc:Name>AvailabilityPerMonth</ogc:Name>
+      <ogc:Title>Availability (Month)</ogc:Title>
+      <ogc:Abstract>The general availability of the service per month.</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:availability:month</ogc:Type>
+      <ogc:Value>100.0</ogc:Value>
+    </ogc:Property>
+    <ogc:Property>
+      <ogc:Name>AvailabilityPerYear</ogc:Name>
+      <ogc:Title>Availability (Year)</ogc:Title>
+      <ogc:Abstract>The general availability of the service per year.</ogc:Abstract>
+      <ogc:Type>urn:ogc:def:sla:runtime:availability:year</ogc:Type>
+      <ogc:Value>100.0</ogc:Value>
+    </ogc:Property>
+  </ogc:ServiceProperties>
+</ws:ServiceTermState>
+<ws:ServiceTermState ws:termName="TIME_CONSTRAINT_SDT">
+  <ws:State>Ready</ws:State>
+</ws:ServiceTermState>
+----------------------------------------
+
+      * The <<Guarantee Term States>> section describes the status for each specified guarantee term.
+
+----------------------------------------
+<ws:GuaranteeTermState ws:termName="GUARANTEE_PERFORMANCE_RESPONSE">
+  <ws:State>Fulfilled</ws:State>
+</ws:GuaranteeTermState>
+<ws:GuaranteeTermState ws:termName="GUARANTEE_AVAILABILITY_DAY">
+  <ws:State>Fulfilled</ws:State>
+</ws:GuaranteeTermState>
+<ws:GuaranteeTermState ws:termName="GUARANTEE_AVAILABILITY_WEEK">
+  <ws:State>Fulfilled</ws:State>
+</ws:GuaranteeTermState>
+<ws:GuaranteeTermState ws:termName="GUARANTEE_AVAILABILITY_MONTH">
+  <ws:State>Fulfilled</ws:State>
+</ws:GuaranteeTermState>
+<ws:GuaranteeTermState ws:termName="GUARANTEE_AVAILABILITY_YEAR">
+  <ws:State>Fulfilled</ws:State>
+</ws:GuaranteeTermState>
+----------------------------------------

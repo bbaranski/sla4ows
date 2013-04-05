@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema targetNamespace="http://www.ifgi.org/namespaces/sla/reporter" xmlns:sla-reporter="http://www.ifgi.org/namespaces/sla/reporter" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="Configuration" type="sla-reporter:ConfigurationType" />
+
+	<xs:element name="Mail" type="sla-reporter:MailType" />
+
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element ref="sla-reporter:Mail" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MailType">
+		<xs:sequence>
+			<xs:element name="reporter-mail-transport-protocol" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-smtp-port" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-smtp-starttls-enable" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-smtp-auth" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-host" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-user" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-password" minOccurs="1" maxOccurs="1" type="xs:string" />
+			<xs:element name="reporter-mail-from" minOccurs="1" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="enable" type="xs:boolean"/>
+	</xs:complexType>
+
+</xs:schema>

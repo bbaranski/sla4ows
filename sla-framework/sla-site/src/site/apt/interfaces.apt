@@ -1,0 +1,34 @@
+ ------
+ Interfaces
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Interfaces
+
+  The SLA4OWS service interface is designed along the approach described in {{{http://ws-rest.org/2011/proc/a12-kubert.pdf}A RESTful implementation of the WS-Agreement specification}}. This document describes the service interfaces of all relevant components of the SLA4OWS framework. More detailed information about the components and their interaction can be found {{{architecture.html}here}}.
+  
+* Agreement Manager
+
+  The Agreement Manager component offers templates, accept agreement offers and manages agreements. The XML Schema document for the service interface of the Agreement Manager component can be found at <<<<framework-dir>/sla-manager-xml/src/main/xsd>>>.
+  
+* Agreement Proxy
+
+  The Agreement Proxy component is a Policy Enforcement Point (PEP) that checks whether a user is allowed to consume a service and if a service request is performed under the terms of a valid agreement. The XML Schema document for the service interface of the Agreement Proxy component can be found at <<<<framework-dir>/sla-proxy-xml/src/main/xsd>>>.
+
+* Agreement Monitor
+
+  The Agreement Monitor component permanently monitors (active vs. passive monitoring) all relevant Key Performance Indicators (KPIs) of a service such as classic web service properties (e.g. service availability or response time) or domain specific attributes (e.g. data encoding and completeness). The XML Schema document for the service interface of the Agreement Monitor component can be found at <<<<framework-dir>/sla-monitor-xml/src/main/xsd>>>.
+
+* Agreement Evaluator
+
+  The Agreement Evaluator component evaluates the status of the guarantee terms of an agreement (based on the monitoring history). The XML Schema document for the service interface of the Agreement Evaluator component can be found at <<<<framework-dir>/sla-evaluator-xml/src/main/xsd>>>.
+
+* Agreement Reporter
+
+  The Agreement Reporter component reports (potential) service quality problems and (potential) agreement violations to all contracting parties. The XML Schema document for the service interface of the Agreement Reporter component can be found at <<<<framework-dir>/sla-reporter-xml/src/main/xsd>>>.
+
+* Infrastructure Manager
+
+  The Infrastructure Manager component is responsible for resource management and the implementation of guaranteed service quality levels in Cloud Computing infrastructures. The XML Schema document for the service interface of the Infrastructure Manager component can be found at <<<<framework-dir>/sla-infrastructure-xml/src/main/xsd>>>.

@@ -1,0 +1,83 @@
+ ------
+ Service Level Agreements for OGC Web Services
+ ------
+ Bastian Baranski
+ ------
+ 2011-10-14
+             
+Installation
+
+ This document describes the required steps to build and run the client for the SLA4OWS framework.
+  
+* Requirements
+
+ The following requirements exist for building and running the client for the SLA4OWS framework.
+
+      * Subversion 1.6.0
+      
+      * Maven 2
+       
+      * Java 1.6
+      
+      * Tomcat 5.5
+ 
+* Download
+
+ The source can be checked out anonymously from SVN with this command:
+ 
+----------------------------------------
+$ svn checkout https://svn.52north.org/svn/projects/geoprocessing/SLA4OWS/sla-client
+----------------------------------------
+ 
+* Configure
+
+ Detailed configuration instructions can be found {{{client-configuration.html}here}}.
+ 
+* Build
+
+ The project can be build with this command.
+ 
+----------------------------------------
+$ mvn clean install
+----------------------------------------
+ 
+* Run
+
+ There are two alternatives to run the client for the SLA4OWS framework.
+ 
+** Maven Jetty Plugin
+
+ To run the client of the SLA4OWS framework with the Maven GWT plugin, use this command:
+
+----------------------------------------
+$ mvn gwt:run
+----------------------------------------
+ 
+ After starting the Jetty server, the client of the SLA4OWS framework is available at the following URL.
+
+----------------------------------------
+http://localhost:8888/SlaClient.html
+----------------------------------------
+
+ More information about the client of the SLA4OWS framework can be found {{{walkthrough.html}here}}.
+
+** Apache Tomcat
+
+ To run the client of the SLA4OWS framework with a standard Tomcat deployment, insert the following lines into the <<<conf/server.xml>>> configuration file.
+ 
+----------------------------------------
+(...)
+        <Context docBase="<client-dir>/sla-clientp/target/sla-client-1.0-SNAPSHOT" path="/sla-client" />        
+      </Host>
+    </Engine>
+  </Service>
+</Server>
+----------------------------------------
+ 
+ After starting the Tomcat server, the client of the SLA4OWS framework is available at the following URL.
+
+----------------------------------------
+http://<server>:<port>/sla-client/SlaClient.html
+----------------------------------------
+
+ More information about the client of the SLA4OWS framework can be found {{{walkthrough.html}here}}.
